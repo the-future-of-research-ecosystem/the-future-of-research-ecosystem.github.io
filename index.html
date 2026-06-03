@@ -45,16 +45,18 @@ body {
 body::before {
   content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
   background:
-    radial-gradient(ellipse 85% 55% at 82% -8%, rgba(168,85,247,0.13), transparent 55%),
-    radial-gradient(ellipse 75% 50% at -5% 6%, rgba(109,40,217,0.08), transparent 52%),
-    linear-gradient(180deg, #fcfbff 0%, #f6f3fc 60%, #f3effa 100%);
+    url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='200'%20height='200'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.16%200'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 90% 60% at 84% -10%, rgba(168,85,247,0.26), transparent 56%),
+    radial-gradient(ellipse 80% 55% at -8% 4%, rgba(109,40,217,0.18), transparent 54%),
+    radial-gradient(ellipse 70% 60% at 50% 112%, rgba(124,58,237,0.16), transparent 60%),
+    linear-gradient(180deg, #fdfcff 0%, #f1ecfa 55%, #e7def3 100%);
 }
 body::after {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background-image: radial-gradient(rgba(76,40,130,0.055) 1px, transparent 1.5px);
-  background-size: 26px 26px;
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 88%, transparent 100%);
-          mask-image: linear-gradient(180deg, #000 0%, #000 88%, transparent 100%);
+  background-image: radial-gradient(rgba(76,40,130,0.13) 1.4px, transparent 1.6px);
+  background-size: 24px 24px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 90%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 90%, transparent 100%);
 }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -146,7 +148,7 @@ h1.title {
 
 /* ---------- Sections ---------- */
 section { padding: 72px 0; border-bottom: 1px solid var(--line); }
-section.alt { background: rgba(255,255,255,0.55); }
+section.alt { background: rgba(255,255,255,0.38); }
 .sec-head { max-width: 64ch; margin-bottom: 40px; }
 .eyebrow {
   font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em;
