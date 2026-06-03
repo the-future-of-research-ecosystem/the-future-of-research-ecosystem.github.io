@@ -238,6 +238,17 @@ table.sched tr.feature td:last-child { font-weight: 600; }
 .spk-talk .lbl { display: block; font-style: normal; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 3px; }
 .spk-bio { margin-top: 12px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
 
+/* ---------- Organizers (compact, borderless team grid) ---------- */
+.org-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px 18px; }
+@media (max-width: 940px) { .org-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 680px) { .org-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 460px) { .org-grid { grid-template-columns: repeat(2, 1fr); } }
+.org { text-align: center; }
+.org .avatar { width: 88px; height: 88px; font-size: 28px; margin: 0 auto 12px; transition: transform .2s ease; }
+.org:hover .avatar { transform: translateY(-3px); }
+.org-name { font-size: 14.5px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; line-height: 1.25; }
+.org-affil { font-size: 12.5px; color: var(--ink-3); margin-top: 4px; line-height: 1.35; }
+
 /* ---------- Footer ---------- */
 footer { padding: 56px 0; background: var(--ink); color: #cfc9da; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; }
@@ -372,76 +383,70 @@ footer .ft-links { display: flex; gap: 22px; font-size: 14px; }
       <p>Spanning research systems and networking, AI for Earth, trustworthy and privacy-preserving ML, AI for health and neuroscience, robotics, human–AI interaction, and research-agent infrastructure — across academia and industry, and multiple continents.</p> -->
     </div>
 
-    <div class="subhead">Chairs</div>
-    <div class="people">
+    <div class="org-grid">
 
-      <div class="person">
+      <div class="org">
         <div class="avatar" style="background:#6d28d9;">AC<img src="photos/ang-chen.jpg" alt="Ang Chen" onerror="this.remove()"></div>
-        <div class="name">Prof. Ang Chen</div>
-        <div class="affil">University of Michigan</div>
+        <div class="org-name">Prof. Ang Chen</div>
+        <div class="org-affil">University of Michigan</div>
       </div>
 
-      <div class="person">
+      <div class="org">
         <div class="avatar" style="background:#6d28d9;">AL<img src="photos/amber-liu.jpg" alt="Jiachen Amber Liu" onerror="this.remove()"></div>
-        <div class="name">Dr. Jiachen "Amber" Liu</div>
-        <div class="affil">ARA-Commons</div>
+        <div class="org-name">Dr. Jiachen "Amber" Liu</div>
+        <div class="org-affil">ARA-Commons</div>
       </div>
 
-    </div>
-
-    <div class="subhead" style="margin-top:36px;">Organizing Committee</div>
-    <div class="people">
-
-      <div class="person">
+      <div class="org">
         <div class="avatar" style="background:#7c3aed;">MC<img src="photos/marco-canini.jpg" alt="Marco Canini" onerror="this.remove()"></div>
-        <div class="name">Prof. Marco Canini</div>
-        <div class="affil">KAUST</div>
+        <div class="org-name">Prof. Marco Canini</div>
+        <div class="org-affil">KAUST</div>
       </div>
 
-      <div class="person">
+      <div class="org">
         <div class="avatar" style="background:#8b5cf6;">JH<img src="photos/junyuan-hong.jpg" alt="Junyuan Hong" onerror="this.remove()"></div>
-        <div class="name">Prof. Junyuan Hong</div>
-        <div class="affil">National University of Singapore</div>
+        <div class="org-name">Prof. Junyuan Hong</div>
+        <div class="org-affil">National University of Singapore</div>
       </div>
 
-      <div class="person">
+      <div class="org">
         <div class="avatar" style="background:#9333ea;">SM<img src="photos/stefan-mihalas.jpg" alt="Stefan Mihalas" onerror="this.remove()"></div>
-        <div class="name">Dr. Stefan Mihalas</div>
-        <div class="affil">Allen Institute</div>
+        <div class="org-name">Dr. Stefan Mihalas</div>
+        <div class="org-affil">Allen Institute</div>
       </div>
 
-      <div class="person">
+      <div class="org">
         <div class="avatar" style="background:#a855f7;">JP<img src="photos/jiaxin-pei.jpg" alt="Jiaxin Pei" onerror="this.remove()"></div>
-        <div class="name">Dr. Jiaxin Pei</div>
-        <div class="affil">Stanford HAI (incoming UT Austin)</div>
+        <div class="org-name">Dr. Jiaxin Pei</div>
+        <div class="org-affil">Stanford HAI (incoming UT Austin)</div>
       </div>
 
-      <div class="person">
+      <div class="org">
         <div class="avatar" style="background:#a855f7;">DZ<img src="photos/daniel-zhang.jpg" alt="Chenhui Daniel Zhang" onerror="this.remove()"></div>
-        <div class="name">Dr. Chenhui "Daniel" Zhang</div>
-        <div class="affil">Google DeepMind</div>
+        <div class="org-name">Dr. Chenhui "Daniel" Zhang</div>
+        <div class="org-affil">Google DeepMind</div>
       </div>
 
-      <div class="person">
+      <div class="org">
         <div class="avatar" style="background:#b06ef0;">VF<img src="photos/velvin-fu.jpg" alt="Velvin Fu" onerror="this.remove()"></div>
-        <div class="name">Dr. Velvin Fu</div>
-        <div class="affil">Meta</div>
+        <div class="org-name">Dr. Velvin Fu</div>
+        <div class="org-affil">Meta</div>
       </div>
 
-      <div class="person">
+      <div class="org">
         <div class="avatar" style="background:#c084fc;">KW<img src="photos/koutian-wu.jpg" alt="Koutian Wu" onerror="this.remove()"></div>
-        <div class="name">Koutian Wu</div>
-        <div class="affil">University of Texas at Austin</div>
+        <div class="org-name">Koutian Wu</div>
+        <div class="org-affil">University of Texas at Austin</div>
       </div>
 
-      <div class="person">
+      <div class="org">
         <div class="avatar" style="background:#c084fc;">XJ<img src="photos/xianglin-ji.jpg" alt="Xianglin Ji" onerror="this.remove()"></div>
-        <div class="name">Xianglin Ji</div>
-        <div class="affil">MIT</div>
+        <div class="org-name">Xianglin Ji</div>
+        <div class="org-affil">MIT</div>
       </div>
 
     </div>
-    <p class="note">The submitted NeurIPS proposal lists eight organizers per the NeurIPS cap; the full organizing team is listed here. Program committee drawn from the co-author group of <em>The Last Human-Written Paper</em> (arXiv:2604.24658) plus external invitations across AI-for-science, MLSys, scientific publishing, and reproducibility research.</p>
+    <!-- <p class="note">The submitted NeurIPS proposal lists eight organizers per the NeurIPS cap; the full organizing team is listed here. Program committee drawn from the co-author group of <em>The Last Human-Written Paper</em> (arXiv:2604.24658) plus external invitations across AI-for-science, MLSys, scientific publishing, and reproducibility research.</p> -->
   </div>
 </section>
 
