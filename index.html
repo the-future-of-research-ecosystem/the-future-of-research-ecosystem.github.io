@@ -59,10 +59,8 @@ nav .wrap {
   font-weight: 700; font-size: 15px; color: var(--ink);
   letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 9px;
 }
-.nav-brand .dot {
-  width: 22px; height: 22px; border-radius: 6px;
-  background: linear-gradient(135deg, var(--accent), #a855f7);
-  display: inline-block;
+.nav-brand .mark {
+  height: 30px; width: auto; display: inline-block; object-fit: contain;
 }
 .nav-links { display: flex; gap: 4px; align-items: center; }
 .nav-links a {
@@ -269,7 +267,7 @@ footer .ft-links { display: flex; gap: 22px; font-size: 14px; }
 <!-- ============ NAV ============ -->
 <nav>
   <div class="wrap">
-    <a class="nav-brand" href="#top"><span class="dot"></span> Research Ecosystem @ NeurIPS 2026</a>
+    <a class="nav-brand" href="#top"><img class="mark" src="assets/mark.png" alt="" onerror="this.remove()"> Research Ecosystem @ NeurIPS 2026</a>
     <div class="nav-links">
       <a href="#speakers">Speakers</a>
       <a href="#organizers">Organizers</a>
