@@ -9,6 +9,8 @@
 <meta property="og:title" content="The Research Ecosystem for an Age of AI Scientists">
 <meta property="og:description" content="A first-principles NeurIPS 2026 workshop on what to rebuild when AI scientists become first-class participants in research.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="assets/logo.png">
+<link rel="icon" type="image/png" href="assets/logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,6 +86,12 @@ nav .wrap {
     radial-gradient(ellipse 60% 50% at 0% 10%, rgba(109,40,217,0.07), transparent 55%);
   border-bottom: 1px solid var(--line);
 }
+.hero.hero-centered { padding: 56px 0 64px; }
+.hero.hero-centered .wrap { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.hero-logo { width: 100%; max-width: 420px; height: auto; display: block; }
+.hero.hero-centered .lede { margin-left: auto; margin-right: auto; }
+.hero.hero-centered .meta-row { justify-content: center; }
+.hero.hero-centered .btn-row { justify-content: center; }
 .kicker {
   display: inline-flex; align-items: center; gap: 10px;
   font-size: 12.5px; font-weight: 600; letter-spacing: 0.14em;
@@ -259,10 +267,15 @@ footer .ft-links { display: flex; gap: 22px; font-size: 14px; }
 </nav>
 
 <!-- ============ HERO ============ -->
-<header class="hero" id="top">
+<header class="hero hero-centered" id="top">
   <div class="wrap">
-    <span class="kicker">NeurIPS 2026 · Workshop</span>
-    <h1 class="title">The Research Ecosystem for an Age of AI Scientists</h1>
+    <img class="hero-logo" src="assets/logo.png"
+         alt="The Research Ecosystem for an Age of AI Scientists — NeurIPS 2026 Workshop"
+         onerror="this.remove(); var f=document.getElementById('hero-fallback'); if(f) f.hidden=false;">
+    <div id="hero-fallback" hidden>
+      <span class="kicker">NeurIPS 2026 · Workshop</span>
+      <h1 class="title">The Research Ecosystem for an Age of AI Scientists</h1>
+    </div>
     <p class="lede">AI scientists now <em>produce and consume</em> research, but the ecosystem — representation, review, research memory, attribution, and evaluation — was built for human readers. A first-principles workshop on what to rebuild, and why.</p>
     <div class="meta-row">
       <span><span class="ic">◆</span> Co-located with NeurIPS 2026</span>
