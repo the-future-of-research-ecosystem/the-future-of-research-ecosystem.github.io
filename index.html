@@ -213,6 +213,23 @@ table.sched tr.feature td:last-child { font-weight: 600; }
 .person .rep b { color: var(--ink); font-weight: 600; }
 .subhead { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-3); margin: 8px 0 18px; }
 
+/* ---------- Speaker profiles ---------- */
+.speakers-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 820px) { .speakers-list { grid-template-columns: 1fr; } }
+.spk {
+  display: flex; gap: 18px; align-items: flex-start;
+  border: 1px solid var(--line); border-radius: 14px; padding: 24px;
+  background: #fff; transition: border-color .2s ease, transform .2s ease;
+}
+.spk:hover { border-color: var(--accent); transform: translateY(-2px); }
+.spk .avatar { flex: 0 0 auto; width: 92px; height: 92px; font-size: 30px; margin-bottom: 0; }
+.spk-body { min-width: 0; }
+.spk-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.spk-affil { font-size: 13.5px; color: var(--ink-3); margin-top: 3px; }
+.spk-talk { margin-top: 13px; font-size: 13.5px; color: var(--ink); line-height: 1.45; font-style: italic; }
+.spk-talk .lbl { display: block; font-style: normal; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 3px; }
+.spk-bio { margin-top: 12px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+
 /* ---------- Footer ---------- */
 footer { padding: 56px 0; background: var(--ink); color: #cfc9da; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; }
@@ -267,55 +284,67 @@ footer .ft-links { display: flex; gap: 22px; font-size: 14px; }
       <!-- <h2>Distinguished cross-domain perspectives.</h2>
       <p>A lineup deliberately wider than a pure-ML program — spanning astronomy, biomedicine and the autonomous lab, robotics, formal verification, and ecosystem-level evaluation.</p> -->
     </div>
-    <div class="people">
+    <div class="speakers-list">
 
-      <div class="person">
+      <article class="spk">
         <div class="avatar" style="background:#6d28d9;">JB<img src="photos/joshua-bloom.jpg" alt="Joshua Bloom" onerror="this.remove()"></div>
-        <div class="name">Joshua Bloom</div>
-        <div class="affil">UC Berkeley · Valency</div>
-        <div class="ident">Professor · PhD in Astrophysics</div>
-        <div class="rep"><b>Rep. work:</b> Pioneer of machine learning for time-domain astronomy</div>
-      </div>
+        <div class="spk-body">
+          <div class="spk-name">Joshua Bloom</div>
+          <div class="spk-affil">Professor of Astronomy, UC Berkeley · Valency</div>
+          <div class="spk-talk"><span class="lbl">Talk (tentative)</span>Compounding scientific infrastructure in the age of AI agents — a domain scientist's view from astronomy.</div>
+          <p class="spk-bio">A pioneer of machine learning for time-domain astronomy, building the real-time discovery pipelines and scientific infrastructure that let domain science compound at agent scale.</p>
+        </div>
+      </article>
 
-      <div class="person">
+      <article class="spk">
         <div class="avatar" style="background:#7c3aed;">JB<img src="photos/joydeep-biswas.jpg" alt="Joydeep Biswas" onerror="this.remove()"></div>
-        <div class="name">Joydeep Biswas</div>
-        <div class="affil">University of Texas at Austin</div>
-        <div class="ident">Associate Professor · PhD in Robotics</div>
-        <div class="rep"><b>Rep. work:</b> Long-term autonomy for service mobile robots; LLM-driven robot program synthesis &amp; verification</div>
-      </div>
+        <div class="spk-body">
+          <div class="spk-name">Joydeep Biswas</div>
+          <div class="spk-affil">Associate Professor of CS, UT Austin</div>
+          <div class="spk-talk"><span class="lbl">Talk (tentative)</span>Verifiable autonomy — what robot agents need from research artifacts to act on machine-checked plans.</div>
+          <p class="spk-bio">Leads the Autonomous Mobile Robotics Lab at UT Austin; works on long-term autonomy for service robots and LLM-driven robot program synthesis with machine-checked verification.</p>
+        </div>
+      </article>
 
-      <div class="person">
+      <article class="spk">
         <div class="avatar" style="background:#8b5cf6;">LC<img src="photos/le-cong.jpg" alt="Le Cong" onerror="this.remove()"></div>
-        <div class="name">Le Cong</div>
-        <div class="affil">Stanford University · Pathology &amp; Genetics</div>
-        <div class="ident">Assistant Professor · PhD in Biology</div>
-        <div class="rep"><b>Rep. work:</b> Co-developed CRISPR-Cas9 genome editing (Science 2013); CRISPR-GPT</div>
-      </div>
+        <div class="spk-body">
+          <div class="spk-name">Le Cong</div>
+          <div class="spk-affil">Assistant Professor, Stanford (Pathology &amp; Genetics)</div>
+          <div class="spk-talk"><span class="lbl">Talk (tentative)</span>From CRISPR-GPT to LabOS — closing the loop between AI scientists and the physical lab, and what the artifact layer must capture for wet-lab science.</div>
+          <p class="spk-bio">Co-developed CRISPR-Cas9 genome editing (Science 2013); now builds AI co-scientists for the wet lab, including CRISPR-GPT and the LabOS AI-XR co-scientist.</p>
+        </div>
+      </article>
 
-      <div class="person">
+      <article class="spk">
         <div class="avatar" style="background:#9333ea;">YL<img src="photos/yao-li.jpg" alt="Yao Li" onerror="this.remove()"></div>
-        <div class="name">Yao Li</div>
-        <div class="affil">Portland State University</div>
-        <div class="ident">Assistant Professor · PhD in CS</div>
-        <div class="rep"><b>Rep. work:</b> Program verification &amp; proof assistants for verifiable computation</div>
-      </div>
+        <div class="spk-body">
+          <div class="spk-name">Yao Li</div>
+          <div class="spk-affil">Assistant Professor of CS, Portland State University</div>
+          <div class="spk-talk"><span class="lbl">Talk (tentative)</span>Formal methods for AI scientists — using program verification and proof assistants to make agent-produced research verifiable, not just plausible.</div>
+          <p class="spk-bio">Uses interactive theorem provers and dependent types to formally verify real-world programs, bringing machine-checkable guarantees to agent-produced research.</p>
+        </div>
+      </article>
 
-      <div class="person">
+      <article class="spk">
         <div class="avatar" style="background:#a855f7;">BM<img src="photos/bodhisattwa-majumder.jpg" alt="Bodhisattwa Majumder" onerror="this.remove()"></div>
-        <div class="name">Bodhisattwa Majumder</div>
-        <div class="affil">Allen Institute for AI (Ai2)</div>
-        <div class="ident">Research Scientist · PhD in CS</div>
-        <div class="rep"><b>Rep. work:</b> DataVoyager &amp; AutoDS — autonomous data-driven discovery</div>
-      </div>
+        <div class="spk-body">
+          <div class="spk-name">Bodhisattwa Majumder</div>
+          <div class="spk-affil">Research Scientist, Allen Institute for AI (Ai2)</div>
+          <div class="spk-talk"><span class="lbl">Talk (tentative)</span>Data-driven discovery at Ai2 — autonomous discovery (DataVoyager, AutoDS) and what the artifact + evaluation layer (AstaBench) has to capture.</div>
+          <p class="spk-bio">Leads autonomous, data-driven scientific discovery at Ai2 (DataVoyager, AutoDS) and its evaluation through the AstaBench scientific-agent benchmark.</p>
+        </div>
+      </article>
 
-      <div class="person">
+      <article class="spk">
         <div class="avatar" style="background:#b06ef0;">YZ<img src="photos/yue-zhang.jpg" alt="Yue Zhang" onerror="this.remove()"></div>
-        <div class="name">Yue Zhang</div>
-        <div class="affil">Scale AI</div>
-        <div class="ident">Head of Agent Research</div>
-        <div class="rep"><b>Rep. work:</b> Leads agentic AI &amp; AI-for-science benchmarking at Scale AI</div>
-      </div>
+        <div class="spk-body">
+          <div class="spk-name">Yue Zhang</div>
+          <div class="spk-affil">Head of Agent Research, Scale AI</div>
+          <div class="spk-talk"><span class="lbl">Talk (tentative)</span>Benchmarking AI scientists — what ecosystem-level AI4S evaluation has to measure when the producer is an agent.</div>
+          <p class="spk-bio">Leads Agent Research at Scale AI, focused on benchmarking and evaluating agentic systems — and what ecosystem-level AI-for-science evaluation must measure when the producer is an agent.</p>
+        </div>
+      </article>
 
     </div>
   </div>
