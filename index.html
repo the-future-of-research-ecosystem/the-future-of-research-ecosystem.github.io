@@ -150,25 +150,31 @@ h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
 p.body { color: var(--ink-2); }
 p.body + p.body { margin-top: 16px; }
 
-/* ---------- Topics ---------- */
-.topics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-@media (max-width: 760px) { .topics { grid-template-columns: 1fr; } }
-.topic {
-  border: 1px solid var(--line); border-radius: 14px; padding: 24px 24px 26px;
-  background: #fff; transition: border-color .2s ease, transform .2s ease;
+/* ---------- Topics (editorial numbered list) ---------- */
+.tracks { border-top: 1px solid var(--line); }
+.track {
+  display: grid; grid-template-columns: 72px 1fr; gap: 28px;
+  padding: 28px 4px; border-bottom: 1px solid var(--line);
 }
-.topic:hover { border-color: var(--accent); transform: translateY(-2px); }
-.topic .num {
-  font-family: 'Newsreader', serif; font-size: 14px; font-weight: 500;
+.track-num {
+  font-family: 'Newsreader', serif; font-weight: 400; font-size: 40px;
+  line-height: 1; color: var(--accent); opacity: 0.55;
+  font-variant-numeric: tabular-nums;
+}
+.track-title { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); }
+.track-title .tag {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
   color: var(--accent); background: var(--accent-soft);
-  width: 30px; height: 30px; border-radius: 8px;
-  display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px;
+  padding: 3px 9px; border-radius: 999px; margin-left: 12px; vertical-align: middle;
+  white-space: nowrap;
 }
-.topic h3 { margin-bottom: 8px; }
-.topic p { font-size: 14.5px; color: var(--ink-3); line-height: 1.5; }
-.topic .tag {
-  display: inline-block; margin-top: 12px; font-size: 11.5px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent);
+.track-desc { margin-top: 8px; font-size: 15.5px; color: var(--ink-2); line-height: 1.55; max-width: 70ch; }
+.track-desc em { font-style: italic; color: var(--ink); }
+.track:hover .track-num { opacity: 1; }
+@media (max-width: 560px) {
+  .track { grid-template-columns: 44px 1fr; gap: 16px; padding: 22px 0; }
+  .track-num { font-size: 28px; }
+  .track-title .tag { display: inline-block; margin: 6px 0 0; }
 }
 
 /* ---------- Dates ---------- */
@@ -471,32 +477,41 @@ footer .ft-links { display: flex; gap: 22px; font-size: 14px; }
       <h2>Five tracks. Four empirical and technical; one open to position papers.</h2>
       <p>We particularly encourage submissions that take an <em>ecosystem</em> view — multiple actors, a shared substrate, network-level outcomes — over single-system perspectives.</p>
     </div>
-    <div class="topics">
-      <div class="topic">
-        <span class="num">1</span>
-        <h3>Benchmarking AI-Scientist Behavior</h3>
-        <p>How AI scientists actually behave today — what they produce, reuse, review, and where they break.</p>
-        <span class="tag">Foundational track</span>
+    <div class="tracks">
+      <div class="track">
+        <div class="track-num">01</div>
+        <div>
+          <div class="track-title">Benchmarking AI-Scientist Behavior <span class="tag">Foundational track</span></div>
+          <p class="track-desc">How AI scientists actually behave today — what they produce, reuse, review, and where they break.</p>
+        </div>
       </div>
-      <div class="topic">
-        <span class="num">2</span>
-        <h3>Machine-Executable Research Representations</h3>
-        <p>The right unit of research when the consumer is an agent — at once <em>executable</em> and <em>verifiable</em>.</p>
+      <div class="track">
+        <div class="track-num">02</div>
+        <div>
+          <div class="track-title">Machine-Executable Research Representations</div>
+          <p class="track-desc">The right unit of research when the consumer is an agent — at once <em>executable</em> and <em>verifiable</em>.</p>
+        </div>
       </div>
-      <div class="topic">
-        <span class="num">3</span>
-        <h3>Automated Verification and Peer Review</h3>
-        <p>Verification, reproduction, and peer review at agent throughput — with human judgment kept in the loop.</p>
+      <div class="track">
+        <div class="track-num">03</div>
+        <div>
+          <div class="track-title">Automated Verification and Peer Review</div>
+          <p class="track-desc">Verification, reproduction, and peer review at agent throughput — with human judgment kept in the loop.</p>
+        </div>
       </div>
-      <div class="topic">
-        <span class="num">4</span>
-        <h3>Research Memory and Multi-Agent Collaboration</h3>
-        <p>Shared, retrievable research memory — how agents discover, build on, and compose one another's work.</p>
+      <div class="track">
+        <div class="track-num">04</div>
+        <div>
+          <div class="track-title">Research Memory and Multi-Agent Collaboration</div>
+          <p class="track-desc">Shared, retrievable research memory — how agents discover, build on, and compose one another's work.</p>
+        </div>
       </div>
-      <div class="topic">
-        <span class="num">5</span>
-        <h3>Ecosystem-Level Evaluation, Attribution &amp; Mechanism Design</h3>
-        <p>Measuring and steering the multi-actor network — evaluation, contribution attribution, and incentive design. Position papers welcome.</p>
+      <div class="track">
+        <div class="track-num">05</div>
+        <div>
+          <div class="track-title">Ecosystem-Level Evaluation, Attribution &amp; Mechanism Design</div>
+          <p class="track-desc">Measuring and steering the multi-actor network — evaluation, contribution attribution, and incentive design. Position papers welcome.</p>
+        </div>
       </div>
     </div>
   </div>
