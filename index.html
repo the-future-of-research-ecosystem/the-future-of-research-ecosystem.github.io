@@ -3,80 +3,539 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Future of Research Ecosystem</title>
-<meta name="description" content="Rebuilding the research ecosystem for AI scientists — where every research artifact is executable and verifiable.">
+<title>The Research Ecosystem for an Age of AI Scientists — NeurIPS 2026 Workshop</title>
+<meta name="description" content="A NeurIPS 2026 workshop on rebuilding the research ecosystem — representation, review, research memory, attribution, and evaluation — for an age in which AI scientists produce and consume research.">
+
+<meta property="og:title" content="The Research Ecosystem for an Age of AI Scientists">
+<meta property="og:description" content="A first-principles NeurIPS 2026 workshop on what to rebuild when AI scientists become first-class participants in research.">
+<meta property="og:type" content="website">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
 <style>
 :root {
-  --ink: #1a1530;
-  --paper: #ffffff;
+  --ink: #14101f;
+  --ink-2: #3f3a4d;
+  --ink-3: #6b6577;
+  --line: #e7e3ee;
+  --bg: #ffffff;
+  --bg-2: #faf9fc;
+  --accent: #6d28d9;
+  --accent-soft: #f3eefe;
+  --max: 1080px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body {
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--paper);
+  color: var(--ink);
+  background: var(--bg);
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-  letter-spacing: -0.005em;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.004em;
 }
-.painterly {
-  position: fixed; inset: 0; z-index: -2;
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+/* ---------- Nav ---------- */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+nav .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-brand {
+  font-weight: 700; font-size: 15px; color: var(--ink);
+  letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 9px;
+}
+.nav-brand .dot {
+  width: 22px; height: 22px; border-radius: 6px;
+  background: linear-gradient(135deg, var(--accent), #a855f7);
+  display: inline-block;
+}
+.nav-links { display: flex; gap: 4px; align-items: center; }
+.nav-links a {
+  color: var(--ink-2); font-size: 14px; font-weight: 500;
+  padding: 7px 12px; border-radius: 8px; text-decoration: none;
+}
+.nav-links a:hover { background: var(--accent-soft); color: var(--accent); text-decoration: none; }
+.nav-links a.cta {
+  background: var(--ink); color: #fff; margin-left: 6px;
+}
+.nav-links a.cta:hover { background: var(--accent); }
+.nav-toggle { display: none; }
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 92px 0 72px;
   background:
-    radial-gradient(ellipse 60% 50% at 85% 25%, rgba(232,168,120,0.55), transparent 60%),
-    radial-gradient(ellipse 70% 60% at 15% 70%, rgba(184,168,212,0.7), transparent 65%),
-    linear-gradient(170deg, #c4bdd8 0%, #b0a4cc 30%, #9486b8 60%, #6e5e94 100%);
+    radial-gradient(ellipse 70% 60% at 80% -10%, rgba(168,85,247,0.10), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 0% 10%, rgba(109,40,217,0.07), transparent 55%);
+  border-bottom: 1px solid var(--line);
 }
-.wrap {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 40px;
-  max-width: 1000px;
-  margin: 0 auto;
+.kicker {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent);
+  background: var(--accent-soft); padding: 7px 14px; border-radius: 999px;
+  margin-bottom: 26px;
 }
+h1.title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(38px, 5.4vw, 66px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+  color: var(--ink);
+}
+.lede {
+  margin-top: 26px; max-width: 70ch;
+  font-size: clamp(17px, 1.4vw, 20px); color: var(--ink-2);
+  line-height: 1.55;
+}
+.lede em { font-style: italic; color: var(--ink); }
+.meta-row {
+  display: flex; flex-wrap: wrap; gap: 10px 26px;
+  margin-top: 34px; font-size: 14.5px; color: var(--ink-2); font-weight: 500;
+}
+.meta-row span { display: inline-flex; align-items: center; gap: 8px; }
+.meta-row .ic { color: var(--accent); font-weight: 700; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px; border-radius: 10px; font-size: 15px; font-weight: 600;
+  text-decoration: none; transition: transform .15s ease, background .2s ease;
+}
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--accent); }
+.btn-ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---------- Sections ---------- */
+section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+section.alt { background: var(--bg-2); }
+.sec-head { max-width: 64ch; margin-bottom: 40px; }
 .eyebrow {
-  font-size: 12px; font-weight: 500; letter-spacing: 0.18em;
-  text-transform: uppercase; color: rgba(255,255,255,0.85);
-  margin-bottom: 28px;
+  font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
 }
-h1 {
-  font-size: clamp(40px, 6vw, 84px);
-  font-weight: 600; line-height: 1.04; letter-spacing: -0.04em;
-  text-shadow: 0 2px 24px rgba(20, 10, 40, 0.15);
+h2 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 500; font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.1; letter-spacing: -0.02em; color: var(--ink);
 }
-h1 .serif {
-  font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400;
+.sec-head p { margin-top: 16px; color: var(--ink-2); font-size: 17px; }
+h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+p.body { color: var(--ink-2); }
+p.body + p.body { margin-top: 16px; }
+
+/* ---------- Topics ---------- */
+.topics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 760px) { .topics { grid-template-columns: 1fr; } }
+.topic {
+  border: 1px solid var(--line); border-radius: 14px; padding: 24px 24px 26px;
+  background: #fff; transition: border-color .2s ease, transform .2s ease;
 }
-p.lede {
-  font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5;
-  color: rgba(255,255,255,0.9); max-width: 720px; margin-top: 24px;
+.topic:hover { border-color: var(--accent); transform: translateY(-2px); }
+.topic .num {
+  font-family: 'Newsreader', serif; font-size: 14px; font-weight: 500;
+  color: var(--accent); background: var(--accent-soft);
+  width: 30px; height: 30px; border-radius: 8px;
+  display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px;
 }
-p.lede em {
-  font-family: 'Instrument Serif', serif; font-style: italic; color: var(--paper);
+.topic h3 { margin-bottom: 8px; }
+.topic p { font-size: 14.5px; color: var(--ink-3); line-height: 1.5; }
+.topic .tag {
+  display: inline-block; margin-top: 12px; font-size: 11.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent);
 }
-.links { display: flex; gap: 14px; margin-top: 48px; flex-wrap: wrap; }
-.links a {
-  display: inline-flex; align-items: center; padding: 14px 26px;
-  border-radius: 999px; font-size: 15px; font-weight: 500;
-  color: var(--paper); text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.5);
-  transition: all 0.25s ease;
+
+/* ---------- Dates ---------- */
+.dates { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+@media (max-width: 620px) { .dates { grid-template-columns: 1fr; } }
+.date-item { padding: 22px 24px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
+.date-item:nth-child(2n) { border-right: none; }
+.date-item .d { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.date-item .l { margin-top: 6px; font-size: 16px; color: var(--ink); font-weight: 500; }
+.note { margin-top: 16px; font-size: 13.5px; color: var(--ink-3); }
+
+/* ---------- Schedule ---------- */
+table.sched { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.sched td { padding: 13px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.sched tr td:first-child { white-space: nowrap; color: var(--accent); font-weight: 600; font-variant-numeric: tabular-nums; width: 150px; }
+table.sched tr.break td { color: var(--ink-3); font-style: italic; background: var(--bg-2); }
+table.sched tr.feature td:last-child { font-weight: 600; }
+
+/* ---------- People grid ---------- */
+.people { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+@media (max-width: 860px) { .people { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 540px) { .people { grid-template-columns: 1fr; } }
+.person {
+  border: 1px solid var(--line); border-radius: 14px; padding: 24px 22px;
+  background: #fff; transition: border-color .2s ease, transform .2s ease;
 }
-.links a:hover { background: rgba(255,255,255,0.12); border-color: var(--paper); transform: translateY(-1px); }
+.person:hover { border-color: var(--accent); transform: translateY(-2px); }
+.avatar {
+  width: 60px; height: 60px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Newsreader', serif; font-size: 22px; font-weight: 500; color: #fff;
+  margin-bottom: 16px; letter-spacing: 0;
+}
+.person .name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.person .affil { font-size: 13.5px; color: var(--ink-3); margin-top: 3px; }
+.person .ident {
+  margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--accent);
+  background: var(--accent-soft); display: inline-block; padding: 4px 10px; border-radius: 999px;
+  letter-spacing: 0.01em;
+}
+.person .rep { margin-top: 11px; font-size: 13px; color: var(--ink-2); line-height: 1.45; }
+.person .rep b { color: var(--ink); font-weight: 600; }
+.subhead { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-3); margin: 8px 0 18px; }
+
+/* ---------- Footer ---------- */
+footer { padding: 56px 0; background: var(--ink); color: #cfc9da; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; }
+footer a { color: #fff; }
+footer .ft-brand { font-family: 'Newsreader', serif; font-size: 20px; color: #fff; }
+footer p { font-size: 13.5px; max-width: 46ch; margin-top: 10px; }
+footer .ft-links { display: flex; gap: 22px; font-size: 14px; }
 </style>
 </head>
 <body>
-<div class="painterly"></div>
-<main class="wrap">
-  <span class="eyebrow">The Future of Research Ecosystem</span>
-  <h1>Rebuilding the research ecosystem<br>for <span class="serif">AI scientists.</span></h1>
-  <p class="lede">Research is now produced and consumed by AI, but the ecosystem is still built for humans. We are writing the new substrate — where every research artifact is <em>executable</em> and <em>verifiable</em>.</p>
-  <div class="links">
-    <a href="https://github.com/the-future-of-research-ecosystem">GitHub</a>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="wrap">
+    <a class="nav-brand" href="#top"><span class="dot"></span> Research Ecosystem @ NeurIPS 2026</a>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#topics">Topics</a>
+      <a href="#cfp">Call for Papers</a>
+      <a href="#dates">Dates</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#organizers">Organizers</a>
+      <a class="cta" href="#cfp">Submit</a>
+    </div>
   </div>
-</main>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">NeurIPS 2026 · Workshop</span>
+    <h1 class="title">The Research Ecosystem for an Age of AI Scientists</h1>
+    <p class="lede">AI scientists now <em>produce and consume</em> research, but the ecosystem — representation, review, research memory, attribution, and evaluation — was built for human readers. A first-principles workshop on what to rebuild, and why.</p>
+    <div class="meta-row">
+      <span><span class="ic">◆</span> Co-located with NeurIPS 2026</span>
+      <span><span class="ic">◆</span> December 2026 · venue TBA</span>
+      <span><span class="ic">◆</span> Full-day · in person</span>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#cfp">Call for Papers →</a>
+      <a class="btn btn-ghost" href="#speakers">Invited Speakers</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Overview</div>
+      <h2>Treating AI scientists as first-class citizens of research.</h2>
+    </div>
+    <p class="body">The modern research ecosystem — journals, peer review, conferences, citation, tenure tracks, grant cycles, the PDF itself — was built between the 17th and late 20th centuries for a single kind of participant: the human researcher. Each layer assumes a human author choosing what to write, a human reviewer choosing what to trust, and a human reader choosing what to build on. arXiv, OpenReview, and GitHub changed how those artifacts move, but not who they were written for, or by.</p>
+    <p class="body">That assumption is no longer load-bearing. In 2025–2026, autonomous agents became a major contributor to research itself — producing papers, reviewing them, indexing them, and building on them. Agents now sit on <em>both sides</em> of every layer. Most of the AI-for-science conversation focuses on making the <em>model</em> a better scientist; the harder, more neglected question is what <em>ecosystem</em> an AI scientist needs to do science <em>in</em>.</p>
+    <p class="body">This workshop argues a simple thesis: <b>if AI scientists are now a major contributor to research, every layer of the ecosystem — representation, review, research memory, attribution, evaluation — has to be redesigned to treat AI scientists as first-class citizens, not retrofitted users of human-era institutions.</b> Crucially, rebuilding each layer is a source of concrete ML research — benchmarks, datasets, evaluation protocols, and new agent methods — not institutional debate.</p>
+  </div>
+</section>
+
+<!-- ============ TOPICS ============ -->
+<section id="topics" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Topics of Interest</div>
+      <h2>Five tracks. Four empirical and technical; one open to position papers.</h2>
+      <p>We particularly encourage submissions that take an <em>ecosystem</em> view — multiple actors, a shared substrate, network-level outcomes — over single-system perspectives.</p>
+    </div>
+    <div class="topics">
+      <div class="topic">
+        <span class="num">1</span>
+        <h3>Benchmarking AI-Scientist Behavior</h3>
+        <p>Measuring how AI scientists actually behave today — what they produce, reuse, review, and where they break. End-to-end benchmarks across the research loop, failure-mode characterization, agent read/reuse/review studies, trace datasets, and metrics for novelty, rigor, and integrity.</p>
+        <span class="tag">Foundational track</span>
+      </div>
+      <div class="topic">
+        <span class="num">2</span>
+        <h3>Machine-Executable Research Representations</h3>
+        <p>What is the right unit of research when the consumer is an agent — at once <em>executable</em> (runnable end-to-end) and <em>verifiable</em> (auditable against pinned evidence)? Structured and typed artifacts, exploration-graph and failure-trace capture, and systems that compile legacy papers into agent-consumable form.</p>
+      </div>
+      <div class="topic">
+        <span class="num">3</span>
+        <h3>Automated Verification and Peer Review</h3>
+        <p>Verification, reproduction, and peer review at agent throughput; hybrid human–AI adjudication; keeping human judgment in the loop without bottlenecking throughput. Review and reproduction agents, and protocols measuring their reliability.</p>
+      </div>
+      <div class="topic">
+        <span class="num">4</span>
+        <h3>Research Memory and Multi-Agent Collaboration</h3>
+        <p>Shared, retrievable research memory across agents and labs; how agents discover, build on, and compose one another's work; typed dependencies replacing citation-as-string. Retrieval, indexing, and memory systems; claim-graph construction; collaboration protocols.</p>
+      </div>
+      <div class="topic">
+        <span class="num">5</span>
+        <h3>Ecosystem-Level Evaluation, Attribution &amp; Mechanism Design</h3>
+        <p>Measuring and steering the multi-actor network. Ecosystem-level benchmarks; contribution-attribution and data-valuation methods (influence estimation, Shapley-style) for research artifacts; incentive-compatible mechanisms (peer prediction, proper scoring rules). Position and vision papers welcome here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CFP ============ -->
+<section id="cfp">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Call for Papers</div>
+      <h2>Author information.</h2>
+    </div>
+    <p class="body"><b>Research papers (primary track).</b> 9-page long or 4-page short papers in ICLR/NeurIPS format; references and appendices excluded from the page count. New methods, benchmarks, datasets, systems, and evaluation protocols. This is the substance of the program.</p>
+    <p class="body"><b>Position papers (minority track).</b> 4 pages. First-principles arguments about what the ecosystem should become — welcome and spotlighted, but capped so the workshop platforms contributed research rather than becoming a discussion-only venue.</p>
+    <p class="body"><b>Review &amp; policy.</b> All submissions handled via <b>OpenReview</b>, double-blind, ≥3 reviewers per paper. Non-archival; dual submission allowed per ICLR/NeurIPS workshop norms. The LLM policy follows the NeurIPS 2026 main track: AI-assisted writing is permitted with disclosure, and AI-authored submissions must designate a human corresponding author who certifies content.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#" rel="nofollow">OpenReview submission portal →</a>
+    </div>
+    <p class="note">Submission portal opens 2026-08-15. Link to be posted here.</p>
+  </div>
+</section>
+
+<!-- ============ DATES ============ -->
+<section id="dates" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Important Dates</div>
+      <h2>Key dates (tentative).</h2>
+    </div>
+    <div class="dates">
+      <div class="date-item"><div class="d">Submissions open</div><div class="l">August 15, 2026</div></div>
+      <div class="date-item"><div class="d">Submission deadline</div><div class="l">September 15, 2026 (AoE)</div></div>
+      <div class="date-item"><div class="d">Notification</div><div class="l">September 29, 2026</div></div>
+      <div class="date-item"><div class="d">Camera-ready</div><div class="l">November 1, 2026</div></div>
+      <div class="date-item" style="border-right:none;"><div class="d">Workshop</div><div class="l">December 2026 (NeurIPS)</div></div>
+      <div class="date-item" style="border-bottom:none;"><div class="d">Format</div><div class="l">Full-day, in person</div></div>
+    </div>
+    <p class="note">Dates are tentative and follow NeurIPS 2026 workshop deadlines. All times Anywhere on Earth (AoE).</p>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE ============ -->
+<section id="schedule">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Schedule</div>
+      <h2>A full day that builds toward debate.</h2>
+      <p>Six 40-minute invited talks, a culminating panel and moderated discussion, and a closing two-hour poster &amp; demo session for contributed papers.</p>
+    </div>
+    <table class="sched">
+      <tr><td>09:00 – 09:10</td><td>Opening remarks</td></tr>
+      <tr><td>09:10 – 09:50</td><td>Invited Talk 1</td></tr>
+      <tr><td>09:50 – 10:30</td><td>Invited Talk 2</td></tr>
+      <tr class="break"><td>10:30 – 10:55</td><td>Coffee break</td></tr>
+      <tr><td>10:55 – 11:35</td><td>Invited Talk 3</td></tr>
+      <tr><td>11:35 – 12:15</td><td>Invited Talk 4</td></tr>
+      <tr class="break"><td>12:15 – 13:15</td><td>Lunch</td></tr>
+      <tr><td>13:15 – 13:55</td><td>Invited Talk 5</td></tr>
+      <tr><td>13:55 – 14:35</td><td>Invited Talk 6</td></tr>
+      <tr class="break"><td>14:35 – 14:50</td><td>Coffee break</td></tr>
+      <tr class="feature"><td>14:50 – 15:50</td><td>Panel + moderated discussion — <em>What does the next ecosystem look like, and who builds it?</em></td></tr>
+      <tr><td>15:50 – 16:00</td><td>Closing remarks</td></tr>
+      <tr class="feature"><td>16:00 – 18:00</td><td>Poster &amp; Demo Session (contributed papers)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ SPEAKERS ============ -->
+<section id="speakers" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Invited Speakers</div>
+      <h2>Distinguished cross-domain perspectives.</h2>
+      <p>A lineup deliberately wider than a pure-ML program — spanning astronomy, biomedicine and the autonomous lab, formal verification, and ecosystem-level evaluation.</p>
+    </div>
+    <div class="people">
+
+      <div class="person">
+        <div class="avatar" style="background:#6d28d9;">JB</div>
+        <div class="name">Joshua Bloom</div>
+        <div class="affil">UC Berkeley · Valency</div>
+        <div class="ident">Professor · PhD in Astrophysics</div>
+        <div class="rep"><b>Rep. work:</b> Pioneer of machine learning for time-domain astronomy</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#7c3aed;">JZ</div>
+        <div class="name">James Zou</div>
+        <div class="affil">Stanford University (BMDS)</div>
+        <div class="ident">Associate Professor · PhD in Applied Math</div>
+        <div class="rep"><b>Rep. work:</b> Data Shapley; founder of Agents4Science; Virtual Lab (Nature 2025)</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#8b5cf6;">LC</div>
+        <div class="name">Le Cong</div>
+        <div class="affil">Stanford University · Pathology &amp; Genetics</div>
+        <div class="ident">Assistant Professor · PhD in Biology</div>
+        <div class="rep"><b>Rep. work:</b> Co-developed CRISPR-Cas9 genome editing (Science 2013); CRISPR-GPT</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#9333ea;">YL</div>
+        <div class="name">Yao Li</div>
+        <div class="affil">Portland State University</div>
+        <div class="ident">Assistant Professor · PhD in CS</div>
+        <div class="rep"><b>Rep. work:</b> Program verification &amp; proof assistants for verifiable computation</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#a855f7;">BM</div>
+        <div class="name">Bodhisattwa Majumder</div>
+        <div class="affil">Allen Institute for AI (Ai2)</div>
+        <div class="ident">Research Scientist · PhD in CS</div>
+        <div class="rep"><b>Rep. work:</b> DataVoyager &amp; AutoDS — autonomous data-driven discovery</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#b06ef0;">YZ</div>
+        <div class="name">Yue Zhang</div>
+        <div class="affil">Scale AI</div>
+        <div class="ident">Head of Agent Research</div>
+        <div class="rep"><b>Rep. work:</b> Leads agentic AI &amp; AI-for-science benchmarking at Scale AI</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORGANIZERS ============ -->
+<section id="organizers">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Organizers</div>
+      <h2>An organizing committee built to bridge subfields.</h2>
+      <p>Spanning research systems and networking, AI for Earth, trustworthy and privacy-preserving ML, AI for health and neuroscience, human–AI interaction, and research-agent infrastructure — across academia and industry, senior and early-career, and multiple continents.</p>
+    </div>
+    <div class="people">
+
+      <div class="person">
+        <div class="avatar" style="background:#6d28d9;">AC</div>
+        <div class="name">Ang Chen</div>
+        <div class="affil">University of Michigan (EECS) · Senior Chair</div>
+        <div class="ident">Associate Professor · PhD in CS</div>
+        <div class="rep"><b>Rep. work:</b> SIGCOMM Rising Star Award; verifiable networked &amp; cloud systems</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#7c3aed;">MC</div>
+        <div class="name">Marco Canini</div>
+        <div class="affil">KAUST (SANDS Lab)</div>
+        <div class="ident">Professor · PhD in CS</div>
+        <div class="rep"><b>Rep. work:</b> Distributed and networked systems for machine learning</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#8b5cf6;">JH</div>
+        <div class="name">Junyuan Hong</div>
+        <div class="affil">National University of Singapore (ECE)</div>
+        <div class="ident">Assistant Professor · PhD in CS</div>
+        <div class="rep"><b>Rep. work:</b> Lead Chair, GenAI4Health @ NeurIPS 2024–2025; trustworthy &amp; privacy-preserving ML</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#9333ea;">SM</div>
+        <div class="name">Stefan Mihalas</div>
+        <div class="affil">Allen Institute</div>
+        <div class="ident">Investigator (Senior) · PhD in Physics</div>
+        <div class="rep"><b>Rep. work:</b> Large-scale models of neural circuits and visual perception</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#a855f7;">JP</div>
+        <div class="name">Jiaxin Pei</div>
+        <div class="affil">Stanford HAI · incoming Asst. Prof., UT Austin</div>
+        <div class="ident">Postdoctoral Fellow · PhD in CS</div>
+        <div class="rep"><b>Rep. work:</b> Digital infrastructure and standards for AI agents and collective intelligence</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#a855f7;">DZ</div>
+        <div class="name">Chenhui "Daniel" Zhang</div>
+        <div class="affil">Google DeepMind</div>
+        <div class="ident">Research Scientist · PhD in CS</div>
+        <div class="rep"><b>Rep. work:</b> Trustworthy ML and AI for Earth</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#b06ef0;">VF</div>
+        <div class="name">Velvin Fu</div>
+        <div class="affil">Meta</div>
+        <div class="ident">Research Scientist · PhD in CS</div>
+        <div class="rep"><b>Rep. work:</b> Clinical NLP &amp; medical AI; reliability of LLMs in clinical settings</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#b06ef0;">AL</div>
+        <div class="name">Jiachen "Amber" Liu</div>
+        <div class="affil">ARA-Commons · Principal Organizer</div>
+        <div class="ident">PhD in CS (Michigan)</div>
+        <div class="rep"><b>Rep. work:</b> Lead author, <em>The Last Human-Written Paper: Agent-Native Research Artifacts</em> (arXiv 2026)</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#c084fc;">KW</div>
+        <div class="name">Koutian Wu</div>
+        <div class="affil">University of Texas at Austin</div>
+        <div class="ident">PhD Candidate · Geosciences</div>
+        <div class="rep"><b>Rep. work:</b> <em>ESM-Bench: Can AI Agents Understand Earth System Model Physics and Code?</em> (2026)</div>
+      </div>
+
+      <div class="person">
+        <div class="avatar" style="background:#c084fc;">XJ</div>
+        <div class="name">Xianglin Ji</div>
+        <div class="affil">MIT</div>
+        <div class="ident">PhD Student · AI for Physics</div>
+      </div>
+
+    </div>
+    <p class="note">The submitted NeurIPS proposal lists eight organizers per the NeurIPS cap; the full organizing team is listed here. Program committee drawn from the co-author group of <em>The Last Human-Written Paper</em> (arXiv:2604.24658) plus external invitations across AI-for-science, MLSys, scientific publishing, and reproducibility research.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="ft-brand">The Research Ecosystem for an Age of AI Scientists</div>
+      <p>A NeurIPS 2026 workshop on rebuilding research representation, review, memory, attribution, and evaluation for an age in which AI scientists are first-class participants.</p>
+    </div>
+    <div class="ft-links">
+      <a href="#cfp">Call for Papers</a>
+      <a href="#speakers">Speakers</a>
+      <a href="https://github.com/the-future-of-research-ecosystem">GitHub</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
